@@ -12,6 +12,11 @@ const TaskForm = () => {
         const task = form.get('task')
         const description = form.get('description')
 
+        if(!task || !description){
+            toast.error('Both fields are required!')
+            return
+        }
+
         const data ={
             task, description
         }
@@ -36,7 +41,7 @@ const TaskForm = () => {
                         <input
                             type="text"
                             name="task"
-                            id="task"
+                            id="task" 
                             placeholder="Task Title"
                             className=" border rounded-md outline-none px-4 w-full mt-1 py-2 focus:border-orange-500 transition-colors duration-300"
                         />
@@ -45,7 +50,7 @@ const TaskForm = () => {
                         <label htmlFor="description" className="font-medium"> Description </label>
                         <textarea
                             type="text"
-                            name="description"
+                            name="description" 
                             id="description"
                             placeholder="Write description"
                             className="border  rounded-md outline-none mt-1 px-4 w-full py-3 min-h-[100px] focus:border-orange-500 transition-colors duration-300"

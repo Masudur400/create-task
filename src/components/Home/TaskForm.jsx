@@ -1,11 +1,36 @@
 import React from 'react';
+import useAxiosPublic from '../Hooks/axiosPublic';
+import toast, { Toaster } from 'react-hot-toast';
 
 const TaskForm = () => {
+
+    const axiosPublic = useAxiosPublic()
+
+    const  createTask = async (e) =>{
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const task = form.get('task')
+        const description = form.get('description')
+
+        const data ={
+            task, description
+        }
+
+        const res = await axiosPublic.post('/tasks', data)
+        if (res.data.insertedId) {
+             toast.success('Task Added Successful !')
+            e.target.reset()
+        }
+
+    }
+
+
     return (
-        <div className='md:px-7 md:py-14 p-3 g-card'>
-            <h3 className="text-2xl font-medium text-center">Create A Task</h3>
+        <div className='md:px-7 md:py-14 p-3 bg-base-300 rounded-md'>
+            <Toaster></Toaster>
+            <h3 className="text-2xl font-bold text-center text-orange-400">Create A Task</h3>
             <div>
-                <form className='md:w-3/4 mx-auto space-y-3'>
+                <form onSubmit={createTask} className='md:w-3/4 mx-auto space-y-3'>
                     <div className="w-full">
                         <label htmlFor="task" className="font-medium"> Task </label>
                         <input
@@ -28,7 +53,7 @@ const TaskForm = () => {
                     </div>
 
                     <div className='flex justify-center items-center'>
-                    <button type='submit' className='border border-orange-500 font-medium px-3 py-1'>Create</button>
+                    <button type='submit' className='border hover:shadow-md w-40 font-medium px-4 py-2 rounded-md bg-base-100'>Create</button>
                     </div>
                 </form>
             </div>

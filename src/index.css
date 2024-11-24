@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.shimmer {
+  mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/350% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    mask-position: left;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+.g-card {
+  @apply bg-white dark:bg-[#1c1f2b] text-slate-500 dark:text-slate-300 shadow-xl border;
+  position: relative;
+  /* margin: 0 auto; */
+  border-radius: 2px;
+  /* text-align: center; */
+}
+
+.g-card::after,
+.g-card::before {
+  content: "";
+  position: absolute;
+  height: 100.5%;
+  width: 100.5%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 3px;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    indigo,
+    purple,
+    red,
+    deeppink,
+    purple,
+    indigo
+  );
+  animation: 10s gspin linear infinite;
+}
+
+.g-card::before {
+  filter: blur(1.5rem);
+}
+
+@keyframes gspin {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}

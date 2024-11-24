@@ -19,6 +19,8 @@ import LoginRegister from './components/LoginRegister/LoginRegister.jsx';
 import Login from './components/LoginRegister/Login.jsx';
 import Register from './components/LoginRegister/Register.jsx';
 import AuthProvider from './components/Providers/AuthProviders.jsx';
+import ManageTasks from './components/ManageTasks/ManageTasks.jsx';
+import EditTask from './components/ManageTasks/EditTask.jsx';
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+      },
+      {
+        path:'/manageTasks',
+        element: <ManageTasks></ManageTasks>
+      },
+      {
+        path:'/editTask/:id',
+        element:  <EditTask></EditTask>
       },
     ]
   },

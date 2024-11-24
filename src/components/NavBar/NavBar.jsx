@@ -43,13 +43,7 @@ const NavBar = () => {
         <li onClick={() => window.scrollTo({
             top: 0,
             behavior: "smooth", // Smooth scroll animation
-        })}><NavLink to='/allPhoneWatchLaptop' onClick={closeMenu} className={({ isActive }) => isActive ? 'text-orange-500 underline' : 'hover:text-red-500'}>All Products</NavLink></li>
-
-        <li onClick={() => window.scrollTo({
-            top: 0,
-            behavior: "smooth", // Smooth scroll animation
-        })}><NavLink to='/contact' onClick={closeMenu} className={({ isActive }) => isActive ? 'text-orange-500 underline' : 'hover:text-red-500'}>Contact Us</NavLink></li>
-         
+        })}><NavLink to='/manageTasks' onClick={closeMenu} className={({ isActive }) => isActive ? 'text-orange-500 underline' : 'hover:text-red-500'}>Manage Tasks</NavLink></li> 
     </>;
 
     if (loading) {
@@ -104,10 +98,10 @@ const NavBar = () => {
                                             <div className="space-y-1 py-4">
                                                 <p className="text-sm font-medium">{name}</p>
                                                 <div className="divider"></div>
-                                                <Link to='/profile' onClick={() => window.scrollTo({
+                                                {/* <Link to='/profile' onClick={() => window.scrollTo({
                                                     top: 0,
                                                     behavior: "smooth", // Smooth scroll animation
-                                                })}> <li onClick={() => setProfile(!profile)} className="flex gap-1 items-center text-sm hover:bg-base-300 px-1  py-1 rounded-md"><span><PiUserCircleThin></PiUserCircleThin></span>Profile</li></Link>
+                                                })}> <li onClick={() => setProfile(!profile)} className="flex gap-1 items-center text-sm hover:bg-base-300 px-1  py-1 rounded-md"><span><PiUserCircleThin></PiUserCircleThin></span>Profile</li></Link> */}
                                                 <button onClick={() => logOut()} className="text-sm w-full flex gap-1 items-center text-red-400 hover:bg-base-300 px-1 py-1 rounded-md">LogOut <MdLogout></MdLogout></button>
                                             </div>
                                         </ul>

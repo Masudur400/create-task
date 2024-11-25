@@ -68,37 +68,28 @@
 }
 
 
+
+
+
+/* hidden scrollbar */
 @layer base {
   html, body {
-      overflow-y: scroll; /* Allows vertical scrolling */
-  }
-
-  /* Hide scrollbar for all elements on the site */
+      overflow-y: scroll;  
+  } 
   *::-webkit-scrollbar {
       display: none;
   }
   * {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;     /* Firefox */
+      -ms-overflow-style: none; 
+      scrollbar-width: none;   
   }
-}
-
-.contactBG{
-  background-image: url('./assets/images/tec-banner.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 400px    ;
- 
-}
-
- 
-/* Hide scrollbar for Chrome, Safari and Opera */
+}  
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-
-/* Hide scrollbar for IE, Edge and Firefox */
+ 
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
+/* ----------------------- */

@@ -21,7 +21,7 @@ const ManageTasks = () => {
         console.log(task);
         Swal.fire({
             title: "Are you sure?",
-            text: "You want to delete shipping...!",
+            text: "You want to delete task...!",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
